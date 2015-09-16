@@ -80,7 +80,7 @@ public class PaletteDialog extends JDialog {
     // マップチップイメージをロード
     private void loadImage() {
         ImageIcon icon = new ImageIcon(getClass().getResource(
-                "image/mapchip.gif"));
+                "image/mapchip.png"));
         mapchipImage = icon.getImage();
 
         // マップチップごとにイメージを分割
@@ -90,7 +90,7 @@ public class PaletteDialog extends JDialog {
             int x = i % NUM_CHIPS_IN_ROW;
             int y = i / NUM_CHIPS_IN_ROW;
             Graphics g = mapchipImages[i].getGraphics();
-            g.setColor(new Color(128, 0, 0));
+            g.setColor(new Color(0, 0, 0));
             g.fillRect(0, 0, CS, CS);
             g.drawImage(mapchipImage, 0, 0, CS, CS, x * CS, y * CS,
                     x * CS + CS, y * CS + CS, null);
