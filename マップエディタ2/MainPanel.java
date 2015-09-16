@@ -155,7 +155,7 @@ public class MainPanel extends JPanel
                 StringTokenizer st = new StringTokenizer(line, ",");
                 // イベントタイプ
                 String eventType = st.nextToken();
-                if (eventType.equals("MOVE")) { // 移動イベント
+                if (eventType.equals("ENEMY")) { // 移動イベント
                     // 座標
                     int x = Integer.parseInt(st.nextToken());
                     int y = Integer.parseInt(st.nextToken());
@@ -171,7 +171,7 @@ public class MainPanel extends JPanel
                             destMapNo, destX, destY);
                     // 追加
                     eventList.add(moveEvent);
-                } else if (eventType.equals("CHARA")) { // キャラクターイベント
+                } else if (eventType.equals("SPRING")) { // キャラクターイベント
                     // 座標
                     int x = Integer.parseInt(st.nextToken());
                     int y = Integer.parseInt(st.nextToken());
@@ -188,7 +188,7 @@ public class MainPanel extends JPanel
                             direction, moveType, message);
                     // 追加
                     eventList.add(charaEvent);
-                } else if (eventType.equals("TREASURE")) {  // 宝箱イベント
+                } else if (eventType.equals("NEEDLE")) {  // 宝箱イベント
                     // 座標
                     int x = Integer.parseInt(st.nextToken());
                     int y = Integer.parseInt(st.nextToken());
@@ -198,7 +198,7 @@ public class MainPanel extends JPanel
                     TreasureEvent treasureEvent = new TreasureEvent(x, y, itemName);
                     // 追加
                     eventList.add(treasureEvent);
-                } else if (eventType.equals("DOOR")) {  // ドアイベント
+                } else if (eventType.equals("ENEMY")) {  // ドアイベント
                     // 座標
                     int x = Integer.parseInt(st.nextToken());
                     int y = Integer.parseInt(st.nextToken());
