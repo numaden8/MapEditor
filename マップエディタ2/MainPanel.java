@@ -160,12 +160,12 @@ public class MainPanel extends JPanel
                     int x = Integer.parseInt(st.nextToken());
                     int y = Integer.parseInt(st.nextToken());
                     // マップチップ番号
-                    int chipNo = Integer.parseInt(st.nextToken());
+                    int chipNo = 195;
                     // 移動先マップ番号
-                    int destMapNo = Integer.parseInt(st.nextToken());
+                    int destMapNo = 1;
                     // 移動先座標
-                    int destX = Integer.parseInt(st.nextToken());
-                    int destY = Integer.parseInt(st.nextToken());
+                    int destX = 1;
+                    int destY = 1;
                     // イベント生成
                     MoveEvent moveEvent = new MoveEvent(x, y, chipNo,
                             destMapNo, destX, destY);
@@ -176,13 +176,13 @@ public class MainPanel extends JPanel
                     int x = Integer.parseInt(st.nextToken());
                     int y = Integer.parseInt(st.nextToken());
                     // キャラクター番号
-                    int charaNo = Integer.parseInt(st.nextToken());
+                    int charaNo = 1;
                     // 向いている方向
-                    int direction = Integer.parseInt(st.nextToken());
+                    int direction = 1;
                     // 移動タイプ
-                    int moveType = Integer.parseInt(st.nextToken());
+                    int moveType = 1;
                     // メッセージ
-                    String message = st.nextToken();
+                    String message = "";
                     // イベント生成
                     CharaEvent charaEvent = new CharaEvent(x, y, charaNo,
                             direction, moveType, message);
@@ -193,7 +193,7 @@ public class MainPanel extends JPanel
                     int x = Integer.parseInt(st.nextToken());
                     int y = Integer.parseInt(st.nextToken());
                     // アイテム名
-                    String itemName = st.nextToken();
+                    String itemName = "";
                     // イベント生成
                     TreasureEvent treasureEvent = new TreasureEvent(x, y, itemName);
                     // 追加
