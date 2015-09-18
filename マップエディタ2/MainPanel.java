@@ -2,6 +2,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -15,6 +16,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.BitSet;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.StringTokenizer;
 
 import javax.swing.JOptionPane;
@@ -268,17 +272,46 @@ public class MainPanel extends JPanel
     /**
      * 選択しているマップチップでマップを塗りつぶす
      */
+    final static int[] dx = {0, 1, 0, -1};
+    final static int[] dy = {1, 0, -1, 0};
     public void fillMap() {
         // パレットで選択されているマップチップ番号を取得
         int mapchipNo = paletteDialog.getSelectedMapchipNo();
 
-        for (int i = 0; i < row; i++) {
-            for (int j = 0; j < col; j++) {
-                map[i][j] = mapchipNo;
-            }
+//        for (int i = 0; i < row; i++) {
+//            for (int j = 0; j < col; j++) {
+//                map[i][j] = mapchipNo;
+//            }
+//        }
+        int filledChip = 0;
+        for(int i=0; i<4; i++){
+    		final int ny = y + dy[i];
+    		final int nx = x + dx[i];
+    		if(out(nx, ny)) continue;
+    		filledChip = map[ny][nx];
+        }
+        Queue<Point> qu = new LinkedList<Point>();
+//        BitSet bs = new BitSet();
+        qu.add(new Point(x, y));
+        while(!qu.isEmpty()){
+        	Point p = qu.poll();
+        	final int id = p.y*col + p.x;
+//        	if(bs.get(id)) continue;
+//        	bs.set(id);
+        	map[p.y][p.x] = mapchipNo;
+        	for(int i=0; i<4; i++){
+        		final int ny = p.y + dy[i];
+        		final int nx = p.x + dx[i];
+        		if(out(nx, ny) || map[ny][nx] != filledChip) continue;
+        		qu.add(new Point(nx, ny));
+        	}
         }
 
         repaint();
+    }
+    
+    public boolean out(int x, int y){
+    	return x < 0 || x >= col || y < 0 || y >= row;
     }
 
     /**
