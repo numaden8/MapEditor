@@ -29,8 +29,8 @@ public class MainPanel extends JPanel
         implements
             MouseListener,
             MouseMotionListener {
-    public static final int WIDTH = 640;
-    public static final int HEIGHT = 640;
+    public static final int WIDTH = 1280;
+    public static final int HEIGHT = 960;
 
     // チップセットのサイズ（単位：ピクセル）
     public static final int CS = 32;
@@ -82,7 +82,7 @@ public class MainPanel extends JPanel
         this.infoPanel = infoPanel;
 
         // マップを初期化
-        initMap(20, 20);
+        initMap(40, 30);
 
         // コンストラクタの初期化では操作したことにしない
         noSaveFlag = false;
