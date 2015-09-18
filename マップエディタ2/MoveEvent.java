@@ -9,6 +9,7 @@
  */
 public class MoveEvent extends Event {
     // 移動先のマップ番号
+	
     public int destMapNo;
     // 移動先のX座標
     public int destX;
@@ -24,7 +25,6 @@ public class MoveEvent extends Event {
     }
 
     public String toString() {
-        return "MOVE," + super.x + "," + super.y + "," + super.chipNo + "," + destMapNo
-                + "," + destX + "," + destY;
+        return "ENEMY," + super.x + "," + super.y;
     }
 }
